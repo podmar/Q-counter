@@ -26,14 +26,14 @@ function Form({setEntries}: FormProps) {
 
   return (
       <>
-        <form onSubmit={submitForm} method="post">
+        <form onSubmit={submitForm}>
             <div>
               <label htmlFor="number">Number of enries to deduct</label>
-              <input onChange={(e) => setEntriesToDeduct(e.target.value)} value={entriesToDeduct} type="number" id="number" name="number" defaultValue={entriesToDeduct}/>
+              <input onChange={(e) => setEntriesToDeduct(e.target.value)} value={entriesToDeduct} type="number" id="number" name="number" defaultValue={entriesToDeduct} required/>
             </div>
             <div>
               <label htmlFor="date">Date of entry:</label>
-              <input onChange={(e) => setEntryDate(e.target.value)} value={entryDate} type="date" id="date" name="date" defaultValue={entryDate}/>
+              <input onChange={(e) => setEntryDate(e.target.value)} value={entryDate} type="date" id="date" name="date" defaultValue={entryDate} required/>
             </div>
 
           <button type="submit">Submit</button>
