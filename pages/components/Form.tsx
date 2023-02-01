@@ -26,7 +26,7 @@ function Form({setEntries}: FormProps) {
 
   return (
       <>
-        <form onSubmit={(e) => submitForm(e)} method="post">
+        <form onSubmit={submitForm} method="post">
             <div>
               <label htmlFor="number">Number of enries to deduct</label>
               <input onChange={(e) => setEntriesToDeduct(e.target.value)} value={entriesToDeduct} type="number" id="number" name="number" defaultValue={entriesToDeduct}/>
