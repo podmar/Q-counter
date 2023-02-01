@@ -1,0 +1,11 @@
+# node modules
+node_modules
+
+# Mac/OSX
+.DS_Store
+
+# Environments
+.env
+
+# Next.js build output
+.next
