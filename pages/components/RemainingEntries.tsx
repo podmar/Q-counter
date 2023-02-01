@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
-function RemainingEntries() {
-    const [entries, setEntries] = useState(0)
+function RemainingEntries({entries, setEntries}: EntryProps) {
 
     const fetchEntries = async () => {
         const responce = await fetch("http://localhost:3000/api/entry/")
