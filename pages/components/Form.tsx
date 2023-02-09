@@ -25,7 +25,6 @@ function Form({setEntries}: FormProps) {
     }
 
   return (
-      <>
         <form onSubmit={submitForm}>
             <div>
               <label htmlFor="number">Number of enries to deduct</label>
@@ -38,8 +37,6 @@ function Form({setEntries}: FormProps) {
 
           <button type="submit">Submit</button>
         </form>
-
-    </>
   )
 }
 
