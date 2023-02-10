@@ -45,7 +45,6 @@ button {
 }
 
 button:hover {
-  /* border: 0.1rem ridge rgb(93, 164, 182); */
   box-shadow: 0rem 0rem 1rem 0.2rem rgb(93, 164, 182);
 }
 
