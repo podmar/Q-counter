@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styles from '@/styles/Home.module.css'
 
 function Form({setEntries}: FormProps) {
     const today = new Date().toLocaleString('en-CA')
@@ -25,12 +26,12 @@ function Form({setEntries}: FormProps) {
     }
 
   return (
-        <form onSubmit={submitForm}>
-            <div>
-              <label htmlFor="number">Number of enries to deduct</label>
+        <form onSubmit={submitForm} className={styles.form}>
+            <div className={styles.input}>
+              <label htmlFor="number">Number of enries to deduct:</label>
               <input onChange={(e) => setEntriesToDeduct(e.target.value)} value={entriesToDeduct} type="number" id="number" name="number" defaultValue={entriesToDeduct} required/>
             </div>
-            <div>
+            <div className={styles.input}>
               <label htmlFor="date">Date of entry:</label>
               <input onChange={(e) => setEntryDate(e.target.value)} value={entryDate} type="date" id="date" name="date" defaultValue={entryDate} required/>
             </div>
