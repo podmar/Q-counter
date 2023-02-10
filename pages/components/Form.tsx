@@ -36,7 +36,7 @@ function Form({setEntries}: FormProps) {
               <input onChange={(e) => setEntryDate(e.target.value)} value={entryDate} type="date" id="date" name="date" defaultValue={entryDate} required/>
             </div>
 
-          <button type="submit">Submit</button>
+          <button type="submit">Silk away</button>
         </form>
   )
 }
