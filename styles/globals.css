@@ -33,18 +33,19 @@ button, input {
   font-family: inherit;
   font-size: medium;
   border: 0;
+  cursor: pointer;
 }
 
 button {
   font-weight: 500;
   font-size: large;
-  cursor: pointer;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
+  border: 0.2rem ridge rgb(93, 164, 182);
 }
 
 button:hover {
-  border: 0.1rem ridge rgb(93, 164, 182);
+  /* border: 0.1rem ridge rgb(93, 164, 182); */
   box-shadow: 0rem 0rem 1rem 0.2rem rgb(93, 164, 182);
 }
 
