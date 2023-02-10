@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from '@/styles/Home.module.css'
 
 function Form({setEntries}: FormProps) {
-    const today = new Date().toLocaleString('en-CA')
+    const today = new Date().toLocaleString('en-CA').slice(0, 10)
 
     const [entryDate, setEntryDate] = useState(today)
   const [entriesToDeduct, setEntriesToDeduct] = useState("1")
