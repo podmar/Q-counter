@@ -29,7 +29,6 @@ function Form({setEntries}: FormProps) {
         <form onSubmit={submitForm} className={styles.form}>
             <div className={styles.input}>
               <label htmlFor="number">Number of enries to deduct</label>
-        {/* <input onChange={(e) => setEntriesToDeduct(e.target.value)} value={entriesToDeduct} type="number" id="number" name="number" defaultValue={entriesToDeduct} required /> */}
         <input onChange={(e) => setEntriesToDeduct(e.target.value)} value={entriesToDeduct} type="number" id="number" name="number" required/>
 
             </div>
