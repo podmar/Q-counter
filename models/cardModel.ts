@@ -1,10 +1,10 @@
-import { Schema, model, models } from "mongoose";
+import mongoose, { Schema, model, models } from "mongoose";
 
 const cardSchema = new Schema({
   date: { type: Date, default: Date.now },
   totalEntries: { type: Number, default: 10 },
   remainingEntries: { type: Number, default: 10 },
-  //usedEntries: array of dates on which entries have been used
+  usedEntries: [{ type: mongoose.Types.ObjectId, ref: 'Entry' }],
   isActive: { type: Boolean, default: true },
 });
 
