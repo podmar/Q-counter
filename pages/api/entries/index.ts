@@ -1,54 +1,63 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import connectDB from '@/lib/connectDB';
+import Card from '@/models/cardModel';
 import Entry from '@/models/entryModel';
-import { create } from 'domain';
-// import Entry from '@/models/entryModel';
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {
-  message?: string,
-  remaining_entries?: string
+  success: Boolean,
+  message?: String,
+  results?: any
 }
 
 connectDB();
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
 
   //TODO remove stringify and try url encoded on the fetch. Check types number -> string
 
-  if (req.method === 'GET') {
-    res.status(200).json({
-      remaining_entries: "10"
-    })
-  } else if (req.method === 'POST')  {
+    const { method, body } = req;
 
-  if (!req.body.number || !req.body.date) {
-    console.log(`The request body is ${req.body.number} ${req.body.date}`)
-    console.log(`The request information: ${req}`)
+  switch (method) {
+    case 'GET':
+      res.status(200).json({
+        success: true,
+        results: 10
+      })
+      break;
+    case 'POST':
 
-  return res.status(400).json({ message: 'Number of entries or date nor found' })
-  }
+      if (!req.body.card || !req.body.date) {
+        res.status(400).json({ success: false, message: 'Card ID or date nor found.' })
+      }
 
-  connectDB();
-
-  const createEntry = async () => await Entry.create(req.body);
-  const getAllEntries = async () => await Entry.find({})
-  console.log('CREATING DOCUMENT');
-
-  try {
-    createEntry()
-    const totalEntries = Object.keys(getAllEntries).length
-    console.log('CREATED DOCUMENT');
-    return res.status(200).json({
-      message: `${req.body.number} entry/entries recorded on ${req.body.date}`,
-      remaining_entries: (10 - totalEntries).toString()
-    })
-  } catch (error) {
-      console.log(error);
-      return res.status(400).json({ message: `Database error: ${error}` })
+      try {
+        const cardToUpdate = await Card.findById(body.card)
+        if (cardToUpdate.remainingEntries > 0) {
+          const entry = await Entry.create(body);
+          cardToUpdate.remainingEntries = cardToUpdate.remainingEntries - 1;
+          cardToUpdate.usedEntries.push(entry._id)
+          if (cardToUpdate.remainingEntries == 0) {
+            cardToUpdate.isActive = false;
+          }
+          await cardToUpdate.save()
+          res.status(200).json({
+            success: true,
+            message: `Your entry on ${req.body.date} has been recorded.`,
+            results: cardToUpdate
+          })
+        } else {
+          res.status(400).json({ success: false, message: 'Your card is no longer active.' })
+        }
+      } catch (error) {
+        console.log(error);
+        res.status(400).json({ success: false, message: `Database error: ${error}` })
+      }
+      break;
+      default:
+          res.status(400).json({ success: false, message: `${method} not allowed on the route.`})
+          break;
     }
 }
-  }
