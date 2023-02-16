@@ -10,11 +10,12 @@ type Data = {
   remaining_entries?: string
 }
 
+connectDB();
+
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  // connectDB();
 
   //TODO remove stringify and try url encoded on the fetch. Check types number -> string
 
