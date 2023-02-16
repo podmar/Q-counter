@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import connectDB from '@/lib/mongoDBConfig';
+import connectDB from '@/lib/connectDB';
 import Entry from '@/models/entryModel';
 import { create } from 'domain';
 // import Entry from '@/models/entryModel';
