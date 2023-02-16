@@ -29,14 +29,14 @@ export default async function handler(
             break;
         case 'POST':
             try {
-                const card = await Card.create({ body });
+                const card = await Card.create(body);
                 res.status(201).json({ success: true, result: card })
             } catch (error) {
                 res.status(400).json({ success: false, error: error })
             }
             break;
         default:
-            res.status(400).json({ success: false, error: error })
+            res.status(400).json({ success: false})
             break;
     }
 }
