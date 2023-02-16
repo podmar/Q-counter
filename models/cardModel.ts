@@ -5,6 +5,7 @@ const cardSchema = new Schema({
   totalEntries: { type: Number, default: 10 },
   remainingEntries: { type: Number, default: 10 },
   usedEntries: [{ type: Types.ObjectId, ref: 'Entry' }],
+  userName: { type: String },
   isActive: { type: Boolean, default: true },
 });
 
