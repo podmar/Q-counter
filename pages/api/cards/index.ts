@@ -20,8 +20,8 @@ export default async function handler(
     switch (method) {
         case 'GET':
             try {
-                const cards = await Card.find({isActive: true});
-                res.status(200).json({ success: true, result: cards })
+                const activeCards = await Card.find({...body, isActive: true});
+                res.status(200).json({ success: true, result: activeCards })
             } catch (error) {
                 res.status(400).json({ success: false, error: error })
 
