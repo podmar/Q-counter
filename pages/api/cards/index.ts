@@ -3,7 +3,9 @@ import Card from '@/models/cardModel';
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 // type CardData = {
-//   message?: string,
+//   success: Boolean,
+//   message?: String,
+//   results?: any
 // }
 
 connectDB();
@@ -36,7 +38,7 @@ export default async function handler(
             }
             break;
         default:
-            res.status(400).json({ success: false})
+            res.status(400).json({ success: false, message: `${method} not allowed on the route.`})
             break;
     }
 }

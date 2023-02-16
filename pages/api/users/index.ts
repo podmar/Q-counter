@@ -3,7 +3,9 @@ import User from '@/models/userModel';
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 // type UserData = {
-//   message?: string,
+//   success: Boolean,
+//   message?: String,
+//   results?: any
 // }
 
 connectDB();
