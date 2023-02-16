@@ -23,7 +23,7 @@ export default async function handler(
         case 'GET':
             try {
                 const activeCards = await Card.find({...body, isActive: true});
-                res.status(200).json({ success: true, result: activeCards })
+                res.status(200).json({ success: true, results: activeCards })
             } catch (error) {
                 res.status(400).json({ success: false, error: error })
 
@@ -32,7 +32,7 @@ export default async function handler(
         case 'POST':
             try {
                 const card = await Card.create(body);
-                res.status(201).json({ success: true, result: card })
+                res.status(201).json({ success: true, results: card })
             } catch (error) {
                 res.status(400).json({ success: false, error: error })
             }
