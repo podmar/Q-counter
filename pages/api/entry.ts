@@ -16,6 +16,8 @@ export default function handler(
 ) {
   // connectDB();
 
+  //TODO remove stringify and try url encoded on the fetch. Check types number -> string
+
   if (req.method === 'GET') {
     res.status(200).json({
       remaining_entries: "10"
@@ -23,7 +25,9 @@ export default function handler(
   } else if (req.method === 'POST')  {
 
   if (!req.body.number || !req.body.date) {
-  console.log(`The request body is ${req.body.number} ${req.body.date}`)
+    console.log(`The request body is ${req.body.number} ${req.body.date}`)
+    console.log(`The request information: ${req}`)
+
   return res.status(400).json({ message: 'Number of entries or date nor found' })
   }
 
