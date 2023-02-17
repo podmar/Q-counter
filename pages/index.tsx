@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
-import Form from './components/Form'
-import RemainingEntries from './components/RemainingEntries'
+import Form from '../components/Form'
+import RemainingEntries from '../components/RemainingEntries'
 import { useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
