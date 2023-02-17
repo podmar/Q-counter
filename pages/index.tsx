@@ -7,6 +7,7 @@ import { useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [user, setUser] = useState(null)
   const [entries, setEntries] = useState(0)
 
   return (
@@ -18,8 +19,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <RemainingEntries entries={entries} setEntries={ setEntries } />
-        <Form setEntries={ setEntries } />
+        {user ?
+          <>
+          <RemainingEntries entries={entries} setEntries={ setEntries } />
+          <Form setEntries={setEntries} />
+          </>
+          :
+          <>
+          <h1>Choose user</h1>
+          </>
+        }
       </main>
     </>
   )
