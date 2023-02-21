@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
-import Form from '../components/Form'
 import RemainingEntries from '../components/RemainingEntries'
 import ChooseUser from '@/components/ChooseUser'
 import { useState } from 'react'
+import AddEntry from '../components/AddEntry'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,7 +23,7 @@ export default function Home() {
         {user ?
           <>
           <RemainingEntries entries={entries} setEntries={ setEntries } />
-          <Form setEntries={setEntries} />
+          <AddEntry setEntries={setEntries} />
           </>
           :
           <ChooseUser setUser={ setUser } />

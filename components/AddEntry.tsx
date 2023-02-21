@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from '@/styles/Home.module.css'
 
-function Form({setEntries}: FormProps) {
+function AddEntry({setEntries}: FormProps) {
   const today = new Date().toLocaleString('en-CA').slice(0, 10)
 
   const [entryDate, setEntryDate] = useState(today)
@@ -47,4 +47,4 @@ function Form({setEntries}: FormProps) {
   )
 }
 
-export default Form
+export default AddEntry
