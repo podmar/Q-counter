@@ -23,7 +23,7 @@ export default async function handler(
         case 'GET':
             try {
                 const users = await User.find({});
-                res.status(200).json({ success: true, result: users })
+                res.status(200).json({ success: true, results: users })
             } catch (error) {
                 res.status(400).json({ success: false, error: error })
 
@@ -32,7 +32,7 @@ export default async function handler(
         case 'POST':
             try {
                 const user = await User.create(body);
-                res.status(201).json({ success: true, result: user })
+                res.status(201).json({ success: true, results: user })
             } catch (error) {
                 res.status(400).json({ success: false, error: error })
             }
