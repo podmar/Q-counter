@@ -4,9 +4,9 @@ import styles from '@/styles/Home.module.css'
 function RemainingEntries({entries, setEntries}: EntryProps) {
 
     const fetchEntries = async () => {
-        const responce = await fetch("http://localhost:3000/api/entry/")
+        const responce = await fetch("/api/entries/")
         const currentEntries = await responce.json()
-        setEntries(currentEntries.remaining_entries)
+        setEntries(currentEntries.results)
     }
 
     useEffect(() => {
