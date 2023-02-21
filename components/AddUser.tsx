@@ -1,9 +1,6 @@
 import styles from '@/styles/Home.module.css'
 import React, { useState } from 'react'
 
-// TODO
-// [ ] pass the new user to Choose user component
-
 function AddUser({ setUser }: ChooseUserProps) {
     const [userName, setUserName] = useState("")
 
@@ -26,7 +23,7 @@ function AddUser({ setUser }: ChooseUserProps) {
         const response = await fetch("/api/users/", requestOptions)
 
         const data = await response.json()
-        // setUser(data.results)
+        setUser(data.results)
         console.log(data)
     }
 
