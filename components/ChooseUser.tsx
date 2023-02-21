@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import AddUser from './AddUser'
 
 // TODO
 // [x] get all users from users route
@@ -29,6 +30,7 @@ function ChooseUser({ setUser }: ChooseUserProps) {
         <>
             <h1>Q-counter</h1>
             <h3>Choose a user</h3>
+            <AddUser/>
         </>  )
 }
 
