@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 // TODO
 // [ ] pass the new user to Choose user component
 
-function AddUser() {
+function AddUser({ setUser }: ChooseUserProps) {
     const [userName, setUserName] = useState("")
 
     const requestOptions: RequestInit = {

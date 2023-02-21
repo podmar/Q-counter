@@ -33,7 +33,7 @@ function ChooseUser({ setUser }: ChooseUserProps) {
             <h2>q-counter</h2>
             <h4>Choose a user</h4>
         </div>
-            <AddUser />
+            <AddUser setUser={setUser} />
         </>  )
 }
 
