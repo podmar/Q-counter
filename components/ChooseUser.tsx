@@ -6,7 +6,7 @@ import React from 'react'
 // add a user component
 
 
-function ChooseUser() {
+function ChooseUser( { setUser: ChooseUserProps }) {
   return (
         <>
             <h1>Q-counter</h1>

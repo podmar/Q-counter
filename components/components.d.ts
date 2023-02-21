@@ -5,3 +5,7 @@ interface FormProps {
 interface EntryProps extends FormProps {
     entries: number
 }
+
+interface ChooseUserProps {
+    setUser: (user: any) => void
+}
