@@ -15,7 +15,7 @@ function AddEntry({setEntries}: FormProps) {
     body: JSON.stringify({
         date: entryDate,
         // TODO: add card Id
-        // card:
+        card: "63f4e726d8df7c617537a9cc"
     })
 
   }
@@ -25,7 +25,7 @@ function AddEntry({setEntries}: FormProps) {
     console.log(requestOptions)
         const response = await fetch("/api/entries/", requestOptions)
         const data = await response.json()
-        // setEntries(data.remaining_entries)
+        setEntries(data.results.remainingEntries)
         console.log(data.message)
     }
 
