@@ -5,7 +5,7 @@ import AddUser from './AddUser'
 // [x] get all users from users route
 // [ ] display all users in a dropdown menu (new component)
 // [ ] event choosing a user and linking to entries screen
-// [ ] add a user component
+// [x] add a user component
 
 
 function ChooseUser({ setUser }: ChooseUserProps) {
