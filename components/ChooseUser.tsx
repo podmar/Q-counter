@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 // TODO
 // [x] get all users from users route
@@ -20,6 +20,11 @@ function ChooseUser({ setUser }: ChooseUserProps) {
         setUsers(data.results)
         console.log(data.success, users)
     }
+
+    useEffect(() => {
+      getUsers()
+    }, [])
+
   return (
         <>
             <h1>Q-counter</h1>
