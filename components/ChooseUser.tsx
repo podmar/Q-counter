@@ -17,7 +17,7 @@ function ChooseUser({ setUser }: ChooseUserProps) {
     }
 
     const getUsers = async () => {
-        const response = await fetch("http://localhost:3000/api/users/", requestOptions)
+        const response = await fetch("/api/users/", requestOptions)
         const data = await response.json()
         setUsers(data.results)
         console.log(data.success, users)
