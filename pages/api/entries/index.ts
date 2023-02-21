@@ -17,7 +17,6 @@ export default async function handler(
 ) {
 
 //TODO remove stringify and try url encoded on the fetch. Check types number -> string
-//TODO: the date is not being recorded correctly in the entry
 
     const { method, body } = req;
 
