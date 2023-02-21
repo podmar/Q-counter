@@ -9,9 +9,14 @@ function Form({setEntries}: FormProps) {
 
   const requestOptions: RequestInit = {
     method: "POST",
+    headers: new Headers({
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+            }),
     body: JSON.stringify({
-      number: entriesToDeduct,
-      date: entryDate
+        date: entryDate,
+        // TODO: add card Id
+        // card:
     })
 
   }
@@ -19,9 +24,9 @@ function Form({setEntries}: FormProps) {
   const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log(requestOptions)
-        const response = await fetch("http://localhost:3000/api/entry/", requestOptions)
+        const response = await fetch("/api/entries/", requestOptions)
         const data = await response.json()
-        setEntries(data.remaining_entries)
+        // setEntries(data.remaining_entries)
         console.log(data.message)
     }
 
