@@ -1,7 +1,7 @@
 import { Schema, model, models, Types } from "mongoose";
 
 const cardSchema = new Schema({
-  user: { type: Types.ObjectId, ref: 'Entry' , required: [true, 'Please submit a valid user name.'] },
+  user: { type: Types.ObjectId, ref: 'User' , required: [true, 'Please submit a valid user name.'] },
   totalEntries: { type: Number, default: 10 },
   remainingEntries: { type: Number, default: 10 },
   usedEntries: [{ type: Types.ObjectId, ref: 'Entry' }],
