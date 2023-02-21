@@ -1,13 +1,33 @@
 import styles from '@/styles/Home.module.css'
 import React, { useState } from 'react'
 
+// TODO
+// [ ] pass the new user to Choose user component
 
 function AddUser() {
     const [userName, setUserName] = useState("")
 
+    const requestOptions: RequestInit = {
+        method: "POST",
+        headers: new Headers({
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+                }),
+        body: JSON.stringify({
+            userName: userName
+        })
+    }
+
     const createUser = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         console.log("creating user")
+        console.log(requestOptions)
+
+        const response = await fetch("/api/users/", requestOptions)
+
+        const data = await response.json()
+        // setUser(data.results)
+        console.log(data)
     }
 
 
