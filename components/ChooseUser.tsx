@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import AddUser from './AddUser'
+import styles from '@/styles/Home.module.css'
 
 // TODO
 // [x] get all users from users route
@@ -27,10 +28,12 @@ function ChooseUser({ setUser }: ChooseUserProps) {
     }, [])
 
   return (
-        <>
-            <h1>Q-counter</h1>
-            <h3>Choose a user</h3>
-            <AddUser/>
+      <>
+        <div className={styles.container}>
+            <h2>q-counter</h2>
+            <h4>Choose a user</h4>
+        </div>
+            <AddUser />
         </>  )
 }
 
