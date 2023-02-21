@@ -1,7 +1,7 @@
 import { Schema, model, models, Types } from 'mongoose';
 
 const entrySchema = new Schema({
-  date: String,
+  date: { type: Date, default: Date.now() },
   card: { type: Types.ObjectId , required: true, unique: true, ref: 'Card' },
 }, {timestamps: true });
 
