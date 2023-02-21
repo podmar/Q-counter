@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import styles from '@/styles/Home.module.css'
 
 function Form({setEntries}: FormProps) {
-    const today = new Date().toLocaleString('en-CA').slice(0, 10)
+  const today = new Date().toLocaleString('en-CA').slice(0, 10)
 
-    const [entryDate, setEntryDate] = useState(today)
+  const [entryDate, setEntryDate] = useState(today)
   const [entriesToDeduct, setEntriesToDeduct] = useState("1")
 
   const requestOptions: RequestInit = {
@@ -34,7 +34,7 @@ function Form({setEntries}: FormProps) {
             </div>
             <div className={styles.input}>
               <label htmlFor="date">Date of entry</label>
-              <input onChange={(e) => setEntryDate(e.target.value)} value={entryDate} type="date" id="date" name="date" required/>
+              <input onChange={(e) => setEntryDate(e.target.value)} value={entryDate} type="date" id="date" name="date"/>
             </div>
 
           <button type="submit">Silk away</button>
