@@ -7,5 +7,7 @@ interface EntryProps extends FormProps {
 }
 
 interface ChooseUserProps {
-    setUser: (user: any) => void
+    setUser: SetUser
 }
+
+type SetUser = (user: any) => void
