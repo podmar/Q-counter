@@ -30,6 +30,7 @@ export default async function handler(
             }
             break;
         case 'POST':
+    //TODO: save the new card id in user and return user in response or redo how the models are created
             try {
                 const card = await Card.create(body);
                 res.status(201).json({ success: true, results: card })
